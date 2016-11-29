@@ -42,7 +42,7 @@ def search_results():
     del results_raw['end'], results_raw['start'], results_raw['gap']
     results_weekly = OrderedDict(sorted(results_raw.items(), key=lambda t: t[0]))
     r_dump = json.dumps([dict(date=key, name='result', value=value) for key, value in results_weekly.iteritems()])
-    return render_template("search-something.html",
+    return render_template("search-newform.html",
         keywords=keywords, labels = map(str, results['split'].keys()), sentenceCount = r_dump )
 
 if __name__ == "__main__":
